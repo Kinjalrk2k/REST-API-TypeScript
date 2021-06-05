@@ -16,7 +16,7 @@
 
 ./nodemon.json
 
-```
+```json
 {
   "restartable": "rs",
   "ignore": [".git", "node_modules/", "dist/", "coverage/"],
@@ -35,10 +35,33 @@
 
 ./config/default.ts
 
-```
+```json
 export default {
   port: 5000,
   host: "localhost",
-  mongoURI: "mongodb://localhost:277017/rest-api-typescript"
+  mongoURI: "mongodb://localhost:27017/rest-api-typescript"
 }
 ```
+
+Later import this configurations in the ./src/app.ts and ./src/db/connect.ts files
+
+## Use a logger
+
+./src/logger/index.ts
+
+```ts
+import logger from "pino";
+import dayjs from "dayjs";
+
+const log = logger({
+  prettyPrint: true,
+  base: {
+    pid: false,
+  },
+  timestamp: () => `,"time":"${dayjs().format()}"`,
+});
+
+export default log;
+```
+
+> `console.log`s should be replaced by the logger, as `console.log`s blocks the I/O as NodeJS is single threaded and it slows up the application
