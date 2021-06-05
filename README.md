@@ -35,13 +35,13 @@
 
 ./config/default.ts
 
-```json
+```ts
 export default {
   port: 5000,
   host: "localhost",
   mongoURI: "mongodb://localhost:27017/rest-api-typescript",
   saltWorkFactor: 10,
-}
+};
 ```
 
 Later import this configurations in the ./src/app.ts and ./src/db/connect.ts files
