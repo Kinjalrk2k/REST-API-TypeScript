@@ -5,10 +5,10 @@ import { createUser } from "../services/user.service";
 
 export async function createUserHandler(req: Request, res: Response) {
   try {
-    const user = createUser(req.body);
-    return res.json(omit(user, "password"));
+    const user = await createUser(req.body);
+    return res.send(omit(user, "password"));
   } catch (err) {
     log.error(err);
-    res.status(409).send(err.message);
+    return res.status(409).send(err.message);
   }
 }
