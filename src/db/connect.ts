@@ -9,6 +9,7 @@ const connect = () => {
     .connect(mongoURI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useCreateIndex: true,
     })
     .then(() => {
       log.info("MongoDB is connected");
