@@ -66,3 +66,12 @@ export default log;
 ```
 
 > `console.log`s should be replaced by the logger, as `console.log`s blocks the I/O as NodeJS is single threaded and it slows up the application
+
+# Big Note: What to put where?
+
+- `middlewares`: Express Middlewares
+- `models`: Database Models
+- `schemas`: Validation Schemas
+- `services`: Interacting with the Database (+ other bussiness logic)
+- `utils`: Other utility functions that are common throughout the API server
+- `controllers`: Combine everything (services and utils) in a handler for the routes
