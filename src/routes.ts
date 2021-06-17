@@ -15,6 +15,12 @@ import {
   deletePostSchema,
   updatePostSchema,
 } from "./schemas/post.schema";
+import {
+  createPostHandler,
+  deletePostHandler,
+  getPostHandler,
+  updatePostHandler,
+} from "./controllers/post.controller";
 
 export default (app: Express) => {
   /**
