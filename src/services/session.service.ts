@@ -1,4 +1,4 @@
-import { LeanDocument } from "mongoose";
+import { FilterQuery, LeanDocument } from "mongoose";
 import config from "config";
 import Session from "../models/session.model";
 import { SessionDocument } from "../models/session.model";
@@ -58,4 +58,8 @@ export async function reIssueAccessToken({
   const accessToken = createAccessToken({ user, session });
 
   return accessToken;
+}
+
+export async function findSessions(query: FilterQuery<SessionDocument>) {
+  return Session.find(query).lean();
 }

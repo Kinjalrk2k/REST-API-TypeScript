@@ -1,5 +1,9 @@
 import { Request, Response } from "express";
-import { createAccessToken, createSession } from "../services/session.service";
+import {
+  createAccessToken,
+  createSession,
+  findSessions,
+} from "../services/session.service";
 import { updateSession, validatePassword } from "../services/user.service";
 import { sign } from "../utils/jwt.util";
 import config from "config";
@@ -37,4 +41,12 @@ export async function invalidateUserSessionHandler(
   await updateSession({ _id: sessionId }, { valid: false });
 
   return res.sendStatus(200);
+}
+
+export async function getUserSessionsHandler(req: Request, res: Response) {
+  const userId = get(req, "user._id");
+
+  const sessions = await findSessions({ user: userId, valid: true });
+
+  return res.send(sessions);
 }

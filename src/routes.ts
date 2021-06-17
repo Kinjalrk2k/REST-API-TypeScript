@@ -8,6 +8,7 @@ import {
 import {
   createUserSessionHandler,
   invalidateUserSessionHandler,
+  getUserSessionsHandler,
 } from "./controllers/session.controller";
 
 export default (app: Express) => {
@@ -26,6 +27,7 @@ export default (app: Express) => {
   );
 
   // Get User's sessions
+  app.get("/api/sessions", requiresUser, getUserSessionsHandler);
 
   // Logout
   app.delete("/api/sessions", requiresUser, invalidateUserSessionHandler);

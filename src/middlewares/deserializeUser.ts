@@ -26,7 +26,7 @@ const deserializeUser = async (
     return next();
   }
 
-  if (expired && accessToken) {
+  if (expired && refreshToken) {
     const newAccessToken = await reIssueAccessToken({ refreshToken });
 
     if (newAccessToken) {
