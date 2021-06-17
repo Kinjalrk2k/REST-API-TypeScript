@@ -1,0 +1,655 @@
+{
+	"info": {
+		"_postman_id": "dc814f63-9e7b-4b73-be16-23ab48439733",
+		"name": "REST API TypeScript",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"kinjalrk2k@gmail.com\",\r\n    \"password\": \"asdfgh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/sessions",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"sessions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"kinjalrk2k@gmail.com\",\r\n    \"password\": \"asdfgh\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5000/api/sessions",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"sessions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "848"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"350-d9Tit5wt+2A8z/F9589LxikAEq0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jun 2021 15:41:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGNiNGJmNjk5MWU3NjM1MjA0ZWI1ZTIiLCJlbWFpbCI6ImtpbmphbHJrMmtAZ21haWwuY29tIiwibmFtZSI6IktpbmphbCBSYXlrYXJtYWthciIsImNyZWF0ZWRBdCI6IjIwMjEtMDYtMTdUMTM6MTk6NTAuMDkwWiIsInVwZGF0ZWRBdCI6IjIwMjEtMDYtMTdUMTM6MTk6NTAuMDkwWiIsIl9fdiI6MCwic2Vzc2lvbiI6IjYwY2I2ZDJkZmFkMTZkMzY5NGU2YzkyYSIsImlhdCI6MTYyMzk0NDQ5MywiZXhwIjoxNjIzOTQ1MzkzfQ.i8TJXSZ9jjoPv8voeBLRLEGEeeN30iA6GTcEGfEL6wk\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWxpZCI6dHJ1ZSwiX2lkIjoiNjBjYjZkMmRmYWQxNmQzNjk0ZTZjOTJhIiwidXNlciI6IjYwY2I0YmY2OTkxZTc2MzUyMDRlYjVlMiIsInVzZXJBZ2VudCI6IlBvc3RtYW5SdW50aW1lLzcuMjguMCIsImNyZWF0ZWRBdCI6IjIwMjEtMDYtMTdUMTU6NDE6MzMuNDI4WiIsInVwZGF0ZWRBdCI6IjIwMjEtMDYtMTdUMTU6NDE6MzMuNDI4WiIsIl9fdiI6MCwiaWF0IjoxNjIzOTQ0NDkzLCJleHAiOjE2NTU1MDIwOTN9.5AGu1jeRahxFpeH_2xZhz0N9BuKVJIjhzijlewuysuM\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"kinjalrk2k@gmail.com\",\r\n    \"password\": \"asdfgh\",\r\n    \"passwordConfirmation\": \"asdfgh\",\r\n    \"name\": \"Kinjal Raykarmakar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refreshToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/sessions",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get logged in sessions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refreshToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/sessions",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"sessions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get logged in sessions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-refresh",
+										"value": "{{refreshToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:5000/api/sessions",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"sessions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "613"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"265-4ddR7Ur5lnrRg1KHY7+pcR/64Es\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jun 2021 15:46:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"60cb5f09fdd6630738667f03\",\n        \"valid\": true,\n        \"user\": \"60cb4bf6991e7635204eb5e2\",\n        \"userAgent\": \"PostmanRuntime/7.28.0\",\n        \"createdAt\": \"2021-06-17T14:41:13.912Z\",\n        \"updatedAt\": \"2021-06-17T14:41:13.912Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"60cb62604b21102d14607ecd\",\n        \"valid\": true,\n        \"user\": \"60cb4bf6991e7635204eb5e2\",\n        \"userAgent\": \"PostmanRuntime/7.28.0\",\n        \"createdAt\": \"2021-06-17T14:55:28.248Z\",\n        \"updatedAt\": \"2021-06-17T14:55:28.248Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"60cb6d2dfad16d3694e6c92a\",\n        \"valid\": true,\n        \"user\": \"60cb4bf6991e7635204eb5e2\",\n        \"userAgent\": \"PostmanRuntime/7.28.0\",\n        \"createdAt\": \"2021-06-17T15:41:33.428Z\",\n        \"updatedAt\": \"2021-06-17T15:41:33.428Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Create Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refreshToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"A new Post!\",\r\n    \"body\": \"{{$randomLoremParagraph}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/posts",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Post",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-refresh",
+										"value": "{{refreshToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"A new Post!\",\r\n    \"body\": \"{{$randomLoremParagraph}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5000/api/posts",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "427"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ab-pLwBz2ZUgLcRzd2oaqIXS5by5Zo\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jun 2021 15:44:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"A new Post!\",\n    \"body\": \"Voluptatem autem autem provident exercitationem expedita. Fuga repellendus corporis ipsa qui porro illum voluptatem in. Quia qui neque sed eum maiores. Placeat perspiciatis consectetur facilis necessitatibus doloremque.\",\n    \"_id\": \"60cb6de7fad16d3694e6c92c\",\n    \"user\": \"60cb4bf6991e7635204eb5e2\",\n    \"postId\": \"dbIg5f5H3U\",\n    \"createdAt\": \"2021-06-17T15:44:39.225Z\",\n    \"updatedAt\": \"2021-06-17T15:44:39.225Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/posts/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"posts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "dbIg5f5H3U"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get a Post",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5000/api/posts/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"posts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "dbIg5f5H3U"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "427"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ab-hBEpUjVLJu/EfVgfAf86V/sd7AA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jun 2021 15:46:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"60cb6de7fad16d3694e6c92c\",\n    \"title\": \"A new Post!\",\n    \"body\": \"Voluptatem autem autem provident exercitationem expedita. Fuga repellendus corporis ipsa qui porro illum voluptatem in. Quia qui neque sed eum maiores. Placeat perspiciatis consectetur facilis necessitatibus doloremque.\",\n    \"user\": \"60cb4bf6991e7635204eb5e2\",\n    \"postId\": \"dbIg5f5H3U\",\n    \"createdAt\": \"2021-06-17T15:44:39.225Z\",\n    \"updatedAt\": \"2021-06-17T15:44:39.225Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refreshToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"A newER Post!\",\r\n    \"body\": \"{{$randomLoremParagraph}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/posts/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"posts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "dbIg5f5H3U"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Post",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-refresh",
+										"value": "{{refreshToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"A newER Post!\",\r\n    \"body\": \"{{$randomLoremParagraph}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5000/api/posts/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"posts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "dbIg5f5H3U"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "431"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1af-UH0Gg0wWk57B9mKnxxcNODaUB8Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jun 2021 15:48:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"A newER Post!\",\n    \"body\": \"Labore consequatur harum quo dolor blanditiis quia repellendus mollitia. Et aut odio aliquam. Odio quo numquam enim dicta at amet. Atque explicabo rem similique velit voluptatem. Impedit explicabo sed sed vel consequatur.\",\n    \"_id\": \"60cb6de7fad16d3694e6c92c\",\n    \"user\": \"60cb4bf6991e7635204eb5e2\",\n    \"postId\": \"dbIg5f5H3U\",\n    \"createdAt\": \"2021-06-17T15:44:39.225Z\",\n    \"updatedAt\": \"2021-06-17T15:48:48.126Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-refresh",
+								"value": "{{refreshToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/posts/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"posts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "dbIg5f5H3U"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/healthcheck",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"healthcheck"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
