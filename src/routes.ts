@@ -62,18 +62,18 @@ export default (app: Express) => {
   );
 
   // Update a post
-  app.post(
-    "/api/posts",
+  app.put(
+    "/api/posts/:postId",
     [requiresUser, validateRequest(updatePostSchema)],
     updatePostHandler
   );
 
   // Get a post
-  app.get("/api/posts/:id", getPostHandler);
+  app.get("/api/posts/:postId", getPostHandler);
 
   // Delete a post
   app.delete(
-    "/api/posts/:id",
+    "/api/posts/:postId",
     [requiresUser, validateRequest(deletePostSchema)],
     deletePostHandler
   );
