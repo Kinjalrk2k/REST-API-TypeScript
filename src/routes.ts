@@ -1,11 +1,14 @@
 import { Express, Request, Response } from "express";
-import validateRequest from "./middlewares/validateRequest";
+import { validateRequest, requiresUser } from "./middlewares";
 import { createUserHandler } from "./controllers/user.controller";
 import {
   createUserSchema,
   createUserSessionSchema,
 } from "./schemas/user.schema";
-import { createUserSessionHandler } from "./controllers/session.controller";
+import {
+  createUserSessionHandler,
+  invalidateUserSessionHandler,
+} from "./controllers/session.controller";
 
 export default (app: Express) => {
   app.get("/healthcheck", (req: Request, res: Response) => {
@@ -25,4 +28,5 @@ export default (app: Express) => {
   // Get User's sessions
 
   // Logout
+  app.delete("/api/sessions", requiresUser, invalidateUserSessionHandler);
 };
