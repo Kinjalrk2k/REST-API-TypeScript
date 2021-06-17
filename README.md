@@ -2,15 +2,21 @@
 
 ### Initialize TypeScript Project
 
-`npx typescript --init`
+```sh
+npx typescript --init
+```
 
 ### Install Dependancies:
 
-`yarn add express yup config cors express mongoose pino pino-pretty dayjs bcrypt jsonwebtoken lodash nanoid`
+```sh
+yarn add express yup config cors express mongoose pino pino-pretty dayjs bcrypt jsonwebtoken lodash nanoid
+```
 
 ### Install Dev-Dependencies:
 
-`yarn add @types/bcrypt @types/body-parser @types/config @types/cors @types/express @types/jsonwebtoken @types/lodash @types/mongoose @types/nanoid @types/node @types/pino @types/yup ts-node typescript`
+```sh
+yarn add @types/bcrypt @types/body-parser @types/config @types/cors @types/express @types/jsonwebtoken @types/lodash @types/mongoose @types/nanoid @types/node @types/pino @types/yup ts-node typescript
+```
 
 ### Nodemon Configuration
 
